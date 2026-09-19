@@ -1,0 +1,173 @@
+[gd_scene format=3 uid="uid://bgpnamn20nf0m"]
+
+[ext_resource type="Script" uid="uid://c07ghundcccgm" path="res://scenes/scripts/settings.gd" id="1_5p8wc"]
+[ext_resource type="Texture2D" uid="uid://qcxfvvqu75bs" path="res://assets/menu_bg.png" id="2_r6d6q"]
+[ext_resource type="Theme" uid="uid://cdmhpw8hfvsqb" path="res://themes/base_theme.tres" id="3_6wm04"]
+[ext_resource type="FontFile" uid="uid://pf1acr63ivom" path="res://fonts/Undead Pixel 8.ttf" id="3_es4n0"]
+[ext_resource type="Script" uid="uid://dublw56p1n73a" path="res://scenes/scripts/minor/settings_exit_button.gd" id="4_f4mfi"]
+[ext_resource type="Texture2D" uid="uid://bvwa80hhtfjew" path="res://assets/mini_tomato/mini_tomato.png" id="6_83j8s"]
+[ext_resource type="Texture2D" uid="uid://cd56shbxldgxv" path="res://assets/mini_tomato/mini_tomato_pressed.png" id="7_gjs24"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rxnwj"]
+bg_color = Color(0.6252586, 0.47214633, 0.32800514, 1)
+border_width_left = 12
+border_width_top = 12
+border_width_right = 12
+border_width_bottom = 12
+border_color = Color(0.48623353, 0.36573392, 0.22712663, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4effj"]
+bg_color = Color(0.763821, 0.6003314, 0.44748026, 1)
+border_width_left = 12
+border_width_top = 12
+border_width_right = 12
+border_width_bottom = 12
+border_color = Color(0.55350447, 0.41943353, 0.2665113, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_balt5"]
+bg_color = Color(0.4895817, 0.3601846, 0.24089044, 1)
+border_width_left = 12
+border_width_top = 12
+border_width_right = 12
+border_width_bottom = 12
+border_color = Color(0.35681584, 0.26386473, 0.15598914, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k15vc"]
+bg_color = Color(0.49874073, 0.37980413, 0.1454185, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f7v51"]
+bg_color = Color(0.49803922, 0.38039216, 0.14509805, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ikh11"]
+bg_color = Color(0.49803922, 0.38039216, 0.14509805, 1)
+border_width_top = 20
+border_color = Color(0.3824581, 0.3349516, 0.31417432, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_37okk"]
+bg_color = Color(0.7647059, 0.6, 0.44705883, 1)
+border_width_left = 12
+border_width_top = 12
+border_width_right = 12
+border_width_bottom = 12
+border_color = Color(0.5529412, 0.41960785, 0.26666668, 1)
+
+[sub_resource type="Theme" id="Theme_am25x"]
+resource_local_to_scene = true
+Button/colors/font_color = Color(0.88398856, 0.84152555, 0.8026234, 1)
+Button/colors/font_hover_color = Color(0.82040626, 0.76454514, 0.70841444, 1)
+Button/colors/font_pressed_color = Color(0.6759949, 0.6034595, 0.52991664, 1)
+Button/font_sizes/font_size = 60
+Button/fonts/font = ExtResource("3_es4n0")
+Button/styles/hover = SubResource("StyleBoxFlat_rxnwj")
+Button/styles/normal = SubResource("StyleBoxFlat_4effj")
+Button/styles/pressed = SubResource("StyleBoxFlat_balt5")
+HSlider/icons/grabber = ExtResource("6_83j8s")
+HSlider/icons/grabber_highlight = ExtResource("7_gjs24")
+HSlider/styles/grabber_area = SubResource("StyleBoxFlat_k15vc")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_f7v51")
+HSlider/styles/slider = SubResource("StyleBoxFlat_ikh11")
+Panel/styles/panel = SubResource("StyleBoxFlat_37okk")
+
+[node name="Settings" type="Control" unique_id=693584659]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5p8wc")
+
+[node name="BG" type="TextureRect" parent="." unique_id=839518343]
+modulate = Color(0.17778453, 0.17778453, 0.17778453, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_r6d6q")
+
+[node name="SlidersContainer" type="VBoxContainer" parent="." unique_id=2144310302]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.6
+anchor_bottom = 0.75
+offset_left = 80.0
+offset_top = 120.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 70
+
+[node name="MusicSliderContainer" type="VBoxContainer" parent="SlidersContainer" unique_id=1432539884]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="SlidersContainer/MusicSliderContainer" unique_id=1804997437]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_es4n0")
+theme_override_font_sizes/font_size = 80
+text = "Music"
+
+[node name="MusicSlider" type="HSlider" parent="SlidersContainer/MusicSliderContainer" unique_id=1284294275]
+layout_mode = 2
+theme = ExtResource("3_6wm04")
+step = 5.0
+value = 100.0
+
+[node name="SFXSliderContainer" type="VBoxContainer" parent="SlidersContainer" unique_id=11438781]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="SlidersContainer/SFXSliderContainer" unique_id=184681148]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_es4n0")
+theme_override_font_sizes/font_size = 80
+text = "SFX"
+
+[node name="SFXSldier" type="HSlider" parent="SlidersContainer/SFXSliderContainer" unique_id=1465497670]
+layout_mode = 2
+theme = ExtResource("3_6wm04")
+step = 5.0
+value = 100.0
+
+[node name="GeneralSliderContainer" type="VBoxContainer" parent="SlidersContainer" unique_id=465794937]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="SlidersContainer/GeneralSliderContainer" unique_id=1439335443]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_es4n0")
+theme_override_font_sizes/font_size = 80
+text = "General"
+
+[node name="SFXSldier" type="HSlider" parent="SlidersContainer/GeneralSliderContainer" unique_id=1202573531]
+layout_mode = 2
+theme = ExtResource("3_6wm04")
+step = 5.0
+value = 100.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1740317459]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.78
+anchor_right = 0.6
+anchor_bottom = 1.0
+offset_left = 80.0
+offset_bottom = -80.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 30
+
+[node name="SettingsExit" type="Button" parent="HBoxContainer" unique_id=1455763985]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_6wm04")
+text = "CANCEL"
+script = ExtResource("4_f4mfi")
+
+[node name="SettingsSaveExit" type="Button" parent="HBoxContainer" unique_id=165553594]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = SubResource("Theme_am25x")
+text = "SAVE & EXIT"
+script = ExtResource("4_f4mfi")
+
+[connection signal="pressed" from="HBoxContainer/SettingsExit" to="HBoxContainer/SettingsExit" method="_on_pressed"]

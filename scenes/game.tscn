@@ -1,5 +1,17 @@
 [gd_scene format=3 uid="uid://byrbqiuq7bf1f"]
 
+[ext_resource type="Script" uid="uid://bwhmpe0nr6gek" path="res://scenes/scripts/game.gd" id="1_p57ef"]
+[ext_resource type="Texture2D" uid="uid://qcxfvvqu75bs" path="res://assets/menu_bg.png" id="1_uwrxv"]
+[ext_resource type="PackedScene" uid="uid://cany5t47pxpfh" path="res://scenes/main_game_ui.tscn" id="2_kvpfn"]
+[ext_resource type="PackedScene" uid="uid://hep0665sb7kk" path="res://scenes/tomato.tscn" id="2_vtaks"]
+[ext_resource type="Texture2D" uid="uid://2s0r71p8bfvy" path="res://assets/settings/settings.png" id="2_yqjtg"]
+[ext_resource type="Texture2D" uid="uid://bpt8r1amxhdc1" path="res://assets/settings/settings_pressed.png" id="3_lbhrr"]
+[ext_resource type="Script" uid="uid://bna3ywf6ogimf" path="res://scenes/scripts/minor/play_button.gd" id="4_0tnpc"]
+[ext_resource type="Texture2D" uid="uid://1h3q5v27qkpd" path="res://assets/settings/settings_hover.png" id="4_iywne"]
+[ext_resource type="Theme" uid="uid://cdmhpw8hfvsqb" path="res://themes/base_theme.tres" id="5_iywne"]
+[ext_resource type="Script" uid="uid://b6gjmhviayqe7" path="res://scenes/scripts/minor/settings_button.gd" id="7_gee14"]
+[ext_resource type="PackedScene" uid="uid://bgpnamn20nf0m" path="res://scenes/settings.tscn" id="7_u5sy4"]
+
 [node name="Game" type="Control" unique_id=1164964893]
 layout_mode = 3
 anchors_preset = 15
@@ -7,3 +19,95 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_p57ef")
+
+[node name="MainGame" type="Control" parent="." unique_id=582051268]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainGameUI" parent="MainGame" unique_id=343217643 instance=ExtResource("2_kvpfn")]
+layout_mode = 1
+
+[node name="Tomato" parent="MainGame" unique_id=2168760 instance=ExtResource("2_vtaks")]
+layout_mode = 1
+
+[node name="Menu" type="Control" parent="." unique_id=1374416430]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BG" type="TextureRect" parent="Menu" unique_id=864981826]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_uwrxv")
+
+[node name="Buttons" type="VBoxContainer" parent="Menu" unique_id=1815189738]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.08
+anchor_top = 0.55
+anchor_right = 0.5
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 40
+
+[node name="PlayButton" type="Button" parent="Menu/Buttons" unique_id=395921965]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("5_iywne")
+text = "PLAY"
+script = ExtResource("4_0tnpc")
+
+[node name="ContinueButton" type="Button" parent="Menu/Buttons" unique_id=1585003667]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("5_iywne")
+text = "CONTINUE"
+
+[node name="SettingsButton" type="TextureButton" parent="." unique_id=959962621]
+custom_maximum_size = Vector2(200, 200)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -250.0
+offset_top = 50.0
+offset_right = -50.0
+offset_bottom = 250.0
+grow_horizontal = 0
+texture_normal = ExtResource("2_yqjtg")
+texture_pressed = ExtResource("3_lbhrr")
+texture_hover = ExtResource("4_iywne")
+stretch_mode = 0
+script = ExtResource("7_gee14")
+
+[node name="Settings" parent="." unique_id=693584659 instance=ExtResource("7_u5sy4")]
+visible = false
+layout_mode = 1
+
+[node name="TransitionRect" type="ColorRect" parent="." unique_id=1953409435]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[connection signal="pressed" from="Menu/Buttons/PlayButton" to="Menu/Buttons/PlayButton" method="_on_pressed"]
+[connection signal="pressed" from="SettingsButton" to="SettingsButton" method="_on_pressed"]

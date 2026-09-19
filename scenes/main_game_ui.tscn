@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://cany5t47pxpfh"]
+
+[ext_resource type="Theme" uid="uid://cdmhpw8hfvsqb" path="res://themes/base_theme.tres" id="1_c6nya"]
+[ext_resource type="Script" uid="uid://c4c0n4hxajawb" path="res://scenes/scripts/main_game_ui.gd" id="1_vhqls"]
+[ext_resource type="Texture2D" uid="uid://bvwa80hhtfjew" path="res://assets/mini_tomato/mini_tomato.png" id="2_vhqls"]
+[ext_resource type="FontFile" uid="uid://pf1acr63ivom" path="res://fonts/Undead Pixel 8.ttf" id="3_lta42"]
+
+[sub_resource type="Theme" id="Theme_c6nya"]
+resource_local_to_scene = true
+
+[node name="MainGameUI" type="Control" unique_id=343217643]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vhqls")
+
+[node name="TomatoPanel" type="Panel" parent="." unique_id=1048528982]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.8
+anchor_top = 0.37
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_right = -50.0
+grow_horizontal = 0
+grow_vertical = 2
+theme = ExtResource("1_c6nya")
+
+[node name="TomatoTexture" type="TextureRect" parent="TomatoPanel" unique_id=576280630]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 30.0
+offset_top = -25.0
+offset_right = 50.0
+offset_bottom = 25.0
+grow_vertical = 2
+texture = ExtResource("2_vhqls")
+
+[node name="TomatoCounter" type="Label" parent="TomatoPanel" unique_id=684561784]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 35.0
+offset_top = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_lta42")
+theme_override_font_sizes/font_size = 50
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ShopButton" type="Button" parent="." unique_id=822524197]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -4.0
+offset_right = 8.0
+offset_bottom = 4.0
+grow_vertical = 2
+theme = SubResource("Theme_c6nya")
